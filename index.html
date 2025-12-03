@@ -78,6 +78,22 @@
       background: color-mix(in oklab, var(--card) 85%, transparent);
       text-decoration: none;
     }
+    /* 当前页面高亮 */
+.nav-links a.active{
+  background: color-mix(in oklab, var(--accent) 22%, transparent);
+  border: 1px solid color-mix(in oklab, var(--accent) 55%, transparent);
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 700;
+}
+
+/* sticky 后的背景/阴影更明显 */
+nav.nav-scrolled{
+  background: color-mix(in oklab, var(--bg) 92%, transparent);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+  border-bottom-color: color-mix(in oklab, var(--border) 85%, transparent);
+}
+
 
     .card {
       background: var(--card);
@@ -173,14 +189,29 @@
       text-align: center;
     }
 
-    #about {
-      position: relative;
-      background-image:
-        linear-gradient(to right, rgba(0,0,0,0.65), rgba(0,0,0,0.30)),
-        url("./assets/background.jpeg");
-      background-size: cover;
-      background-position: center;
-    }
+    #about{
+  position: relative;
+  overflow: hidden;
+  background-image: url("./assets/background.jpeg");
+  background-size: cover;
+  background-position: center;
+}
+
+/* 更稳定的整层遮罩（关键） */
+#about::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background: rgba(0,0,0,0.38); /* 0.30~0.45自己微调 */
+  z-index:0;
+}
+
+/* 让 header 内容压到遮罩上方 */
+#about > *{
+  position: relative;
+  z-index: 1;
+}
+
     #about,
     #about h1,
     #about .subtitle,
@@ -193,6 +224,52 @@
       background: rgba(255,255,255,0.12) !important;
       border-color: rgba(255,255,255,0.25) !important;
     }
+    /* 去掉每个 link 外面那层椭圆背景 */
+.chip{
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important; /* 如果你用了毛玻璃 */
+  padding: 0 !important;           /* 徽章自己有内边距 */
+  border-radius: 0 !important;     /* 取消外层圆角 */
+}
+
+/* 如果椭圆来自 a 标签，也一起清掉 */
+.chip a{
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  border-radius: 0 !important;
+  display: inline-flex;            /* 让内部 img 对齐好 */
+}
+
+/* 让徽章图片本身无多余空隙 */
+.chip img{
+  display: block;
+}
+.chip img{ height: 20px; }
+.chip a img{ transition: transform .15s ease, filter .15s ease; }
+.chip a:hover img{ transform: translateY(-1px); filter: brightness(1.05); }
+/* Banner 内的主标题更突出 */
+#about h1{
+  font-size: 30px;
+  font-weight: 800;
+  margin-bottom: 6px;
+  letter-spacing: .2px;
+}
+
+/* 职位/单位：独立成块，底更稳 */
+
+
+/* 研究兴趣略弱一档，留呼吸 */
+#about .subtitle + div{
+  font-size: 14.5px;
+  line-height: 1.7;
+  text-shadow: 0 1px 2px rgba(0,0,0,.9);
+}
+
+
   </style>
 </head>
 
@@ -226,12 +303,43 @@
           研究兴趣：噪声标签学习/可信AI，多模态学习和人工智能驱动的科学等。
         </div>
         <div class="chips">
-          <div class="chip">📧 zhangqian@jsou.edu.cn</div>
-          <div class="chip">📍 Nanjing, China</div>
-          <div class="chip"><a href="https://scholar.google.com.hk/citations?hl=zh-CN&pli=1&user=_wEvxWoAAAAJ">Google Scholar</a></div>
-          <div class="chip"><a href="https://github.com/LanXiaoPang613">GitHub</a></div>
-          <div class="chip"><a href="https://orcid.org/0000-0003-1749-8653">ORCID</a></div>
-          <div class="chip"><a href="https://sit.jsou.edu.cn/2023/0904/c6266a159158/page.psp">Affiliation Links</a></div>
+        <div class="chip">
+          <a href="mailto:zhangqian@jsou.edu.cn">
+            <img src="https://img.shields.io/badge/Email-zhangqian%40jsou.edu.cn-EA4335?logo=gmail&logoColor=white">
+          </a>
+        </div>
+
+        <div class="chip">
+          <a href="https://www.bing.com/maps?mepi=57%7E%7EEmbedded%7ELargeMapLink&ty=18&q=%E6%B1%9F%E8%8B%8F%E7%9C%81%E5%8D%97%E4%BA%AC%E5%B8%82%E5%BB%BA%E9%82%BA%E5%8C%BA%E5%BA%94%E5%A4%A9%E5%A4%A7%E8%A1%97832%E5%8F%B7&ppois=32.01953_118.74712_%E6%B1%9F%E8%8B%8F%E7%9C%81%E5%8D%97%E4%BA%AC%E5%B8%82%E5%BB%BA%E9%82%BA%E5%8C%BA%E5%BA%94%E5%A4%A9%E5%A4%A7%E8%A1%97832%E5%8F%B7_%7E&cp=32.01972%7E118.916702&v=2&sV=1&FORM=MIRE&qpvt=%E5%8D%97%E4%BA%AC%E5%B8%82%E5%BB%BA%E9%82%BA%E5%8C%BA%E5%BA%94%E5%A4%A9%E5%A4%A7%E8%A1%97832%E5%8F%B7&lvl=11.0"
+             target="_blank" rel="noopener noreferrer">
+            <img src="https://img.shields.io/badge/Nanjing-China-0A66C2?logo=googlemaps&logoColor=white" alt="Nanjing, China">
+          </a>
+        </div>
+
+
+        <div class="chip">
+          <a href="https://scholar.google.com.hk/citations?hl=zh-CN&pli=1&user=_wEvxWoAAAAJ">
+            <img src="https://img.shields.io/badge/Google%20Scholar-Scholar-4285F4?logo=googlescholar&logoColor=white">
+          </a>
+        </div>
+
+        <div class="chip">
+          <a href="https://github.com/LanXiaoPang613">
+            <img src="https://img.shields.io/badge/GitHub-LanXiaoPang613-181717?logo=github&logoColor=white">
+          </a>
+        </div>
+
+        <div class="chip">
+          <a href="https://orcid.org/0000-0003-1749-8653">
+            <img src="https://img.shields.io/badge/ORCID-0000--0003--1749--8653-A6CE39?logo=orcid&logoColor=white">
+          </a>
+        </div>
+
+        <div class="chip">
+          <a href="https://sit.jsou.edu.cn/2023/0904/c6266a159158/page.psp">
+            <img src="https://img.shields.io/badge/🏫%20Affiliation-JSOU-555">
+          </a>
+        </div>
         </div>
       </div>
     </section>
@@ -248,18 +356,18 @@
       <h2>Research Interests(研究方向)</h2>
       <ul>
         <li>
-          <b>Research Direction 1：</b>
+          <b></b>
           <a class="ri-link" href="publications.html?tag=Trustworthy%20AI">Trustworthy AI</a> /
           <a class="ri-link" href="publications.html?tag=Noisy%20Label">Noisy Label</a>
           (噪声标签学习/可信AI)
         </li>
         <li>
-          <b>Research Direction 2：</b>
+          <b></b>
           <a class="ri-link" href="publications.html?tag=Multimodal">Multimodal</a>
           (多模态学习)
         </li>
         <li>
-          <b>Research Direction 3：</b>
+          <b></b>
           <a class="ri-link" href="publications.html?tag=AI4S">AI4S</a>
           (人工智能驱动的科学)
         </li>
@@ -363,5 +471,29 @@
 
     document.getElementById("year").textContent = new Date().getFullYear();
   </script>
+<script>
+  // 1) 当前页面高亮（按文件名匹配）
+  (function setActiveNav(){
+    const path = location.pathname.split("/").pop() || "index.html";
+    document.querySelectorAll(".nav-links a").forEach(a=>{
+      const href = a.getAttribute("href");
+      if(href === path) a.classList.add("active");
+    });
+  })();
+
+  // 2) 滚动后 nav 加背景/阴影
+  (function stickyShadow(){
+    const nav = document.querySelector("nav");
+    if(!nav) return;
+
+    const onScroll = ()=>{
+      if(window.scrollY > 6) nav.classList.add("nav-scrolled");
+      else nav.classList.remove("nav-scrolled");
+    };
+    onScroll();
+    window.addEventListener("scroll", onScroll, {passive:true});
+  })();
+</script>
+
 </body>
 </html>
