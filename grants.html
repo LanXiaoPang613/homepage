@@ -69,28 +69,25 @@ nav.nav-scrolled{
     </section>
   </div>
 <script>
-  // 1) 当前页面高亮（按文件名匹配）
-  (function setActiveNav(){
-    const path = location.pathname.split("/").pop() || "index.html";
-    document.querySelectorAll(".nav-links a").forEach(a=>{
-      const href = a.getAttribute("href");
-      if(href === path) a.classList.add("active");
-    });
-  })();
+(function setActiveNav(){
+  // 取最后一段路径，并去掉空/斜杠
+  let path = location.pathname.split("/").filter(Boolean).pop() || "index.html";
 
-  // 2) 滚动后 nav 加背景/阴影
-  (function stickyShadow(){
-    const nav = document.querySelector("nav");
-    if(!nav) return;
+  // 允许没有 .html 的形式
+  const pathNoExt = path.replace(/\.html$/i, "");
 
-    const onScroll = ()=>{
-      if(window.scrollY > 6) nav.classList.add("nav-scrolled");
-      else nav.classList.remove("nav-scrolled");
-    };
-    onScroll();
-    window.addEventListener("scroll", onScroll, {passive:true});
-  })();
+  document.querySelectorAll(".nav-links a").forEach(a=>{
+    let href = a.getAttribute("href") || "";
+    href = href.split("?")[0].split("#")[0];  // 去 query/hash
+    const hrefNoExt = href.replace(/\.html$/i, "");
+
+    if (href === path || hrefNoExt === pathNoExt) {
+      a.classList.add("active");
+    }
+  });
+})();
 </script>
+
 
 </body>
 </html>
