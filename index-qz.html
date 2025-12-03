@@ -3,13 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <!-- 网站标题：会显示在浏览器标签页 -->
   <title>Qian Zhang(张迁) | Academic Homepage</title>
 
   <style>
-    /* =========================
-       全局主题与基础样式
-    ========================== */
     :root {
       --bg: #0b0d10;
       --card: #12151a;
@@ -40,7 +36,6 @@
       color: var(--text);
       line-height: 1.7;
     }
-
     a { color: var(--accent); text-decoration: none; }
     a:hover { text-decoration: underline; }
 
@@ -51,7 +46,6 @@
       padding: 28px 18px 70px;
     }
 
-    /* 顶部导航条 */
     nav {
       position: sticky;
       top: 0;
@@ -85,7 +79,6 @@
       text-decoration: none;
     }
 
-    /* 卡片容器 */
     .card {
       background: var(--card);
       border: 1px solid var(--border);
@@ -95,7 +88,6 @@
       margin-top: 18px;
     }
 
-    /* 顶部个人信息 */
     .header {
       display: grid;
       grid-template-columns: 140px 1fr;
@@ -108,7 +100,7 @@
       width: 140px; height: 140px;
       border-radius: 16px;
       object-fit: cover;
-	  object-position: center 20%;
+      object-position: center 20%;
       border: 2px solid var(--border);
       background: #999;
     }
@@ -116,9 +108,7 @@
     h1 { margin: 0 0 4px 0; font-size: 28px; }
     .subtitle { color: var(--muted); font-size: 15px; margin-bottom: 8px; }
 
-    .chips {
-      display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px;
-    }
+    .chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
     .chip {
       font-size: 13px; padding: 6px 10px;
       background: color-mix(in oklab, var(--card) 75%, transparent);
@@ -142,14 +132,6 @@
     .item-title { font-weight: 600; margin-bottom: 4px; }
     .item-meta { color: var(--muted); font-size: 14px; }
 
-    .tags { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 6px; }
-    .tag {
-      font-size: 12px; padding: 2px 8px;
-      border: 1px solid var(--border);
-      border-radius: 999px; color: var(--muted);
-    }
-
-    /* 最新动态折叠按钮 */
     .news-toggle {
       font-size: 13px;
       padding: 6px 10px;
@@ -159,9 +141,7 @@
       color: var(--text);
       cursor: pointer;
     }
-    .news-toggle:hover { opacity: 0.9; }
 
-    /* 年份分组头 */
     .year-header {
       display:flex; align-items:center; justify-content:space-between;
       padding: 8px 0 4px;
@@ -170,14 +150,20 @@
       border-top: 1px solid var(--border);
       margin-top: 8px;
     }
-    .year-header:first-child {
-      border-top: none; margin-top: 0;
-    }
+    .year-header:first-child { border-top: none; margin-top: 0; }
     .year-toggle {
       font-size: 12px; padding: 4px 8px;
       border: 1px solid var(--border);
       border-radius: 999px; background: transparent; color: var(--muted);
       cursor: pointer;
+    }
+
+    .ri-link {
+      font-weight: 700;
+      padding: 2px 6px;
+      border-radius: 6px;
+      border: 1px solid var(--border);
+      background: color-mix(in oklab, var(--card) 80%, transparent);
     }
 
     footer {
@@ -186,49 +172,27 @@
       font-size: 13px;
       text-align: center;
     }
-	/* 顶部名片背景图（只影响 about 区域） */
-	#about {
-	  position: relative;
-	  background-image:
-		linear-gradient(
-		  to right,
-		  rgba(0,0,0,0.65),
-		  rgba(0,0,0,0.30)
-		),
-		url("./assets/background.jpeg");
-	  background-size: cover;
-	  background-position: center;
-	}
-	/* =========================
-   顶部名片加背景图后，文字改成白色
-   说明：只影响 about 这一块
-	========================== */
-	#about,
-	#about h1,
-	#about .subtitle,
-	#about .item-meta,
-	#about .chip,
-	#about a {
-	  color: #fff !important;            /* 主文字强制白色 */
-	}
 
-	#about .subtitle,
-	#about .item-meta {
-	  color: rgba(255,255,255,0.85) !important;  /* 次级文字浅白 */
-	}
-
-	/* 小胶囊背景稍微亮一点，跟白字更搭 */
-	#about .chip {
-	  background: rgba(255,255,255,0.12) !important;
-	  border-color: rgba(255,255,255,0.25) !important;
-	}
-
-	/* 链接 hover 更明显一点 */
-	#about a:hover {
-	  opacity: 0.9;
-	}
-
-
+    #about {
+      position: relative;
+      background-image:
+        linear-gradient(to right, rgba(0,0,0,0.65), rgba(0,0,0,0.30)),
+        url("./assets/background.jpeg");
+      background-size: cover;
+      background-position: center;
+    }
+    #about,
+    #about h1,
+    #about .subtitle,
+    #about .item-meta,
+    #about .chip,
+    #about a { color: #fff !important; }
+    #about .subtitle,
+    #about .item-meta { color: rgba(255,255,255,0.85) !important; }
+    #about .chip {
+      background: rgba(255,255,255,0.12) !important;
+      border-color: rgba(255,255,255,0.25) !important;
+    }
   </style>
 </head>
 
@@ -237,21 +201,18 @@
     <div class="nav-inner">
       <div style="font-weight:700;">Qian Zhang(张迁)</div>
       <div class="nav-links">
-        <a href="#about">Profile(简介)</a>
-        <a href="#news">News(动态)</a>
-        <a href="#research">Research Interests(研究方向)</a>
-        <a href="#publications">Publications(论文)</a>
-        <a href="#projects">Grants(项目)</a>
-        <a href="#teaching">Courses Taught(教学)</a>
-        <a href="#services">Academic Service(学术服务)</a>
-        <a href="#awards">Awards(奖项)</a>
+        <a href="index-qz.html">Profile(简介)</a>
+
+        <a href="publications.html">Publications(论文)</a>
+        <a href="grants.html">Grants(项目)</a>
+        <a href="teaching.html">Courses Taught(教学)</a>
+        <a href="services.html">Academic Service(学术服务)</a>
+        <a href="awards.html">Awards(奖项)</a>
       </div>
     </div>
   </nav>
 
   <div class="container">
-
-    <!-- ===== 顶部名片 ===== -->
     <section class="card header" id="about">
       <img class="avatar" src="./assets/photo.png" alt="avatar"/>
       <div>
@@ -261,9 +222,9 @@
           副教授 · 江苏开放大学 信息工程学院
         </div>
         <div>
-		  Research Interests：Noisy label Learning/Trustworthy AI, Multimodal Learning and AI4S, etc. <br/>
+          Research Interests：Noisy label Learning/Trustworthy AI, Multimodal Learning and AI4S, etc. <br/>
           研究兴趣：噪声标签学习/可信AI，多模态学习和人工智能驱动的科学等。
-		</div>
+        </div>
         <div class="chips">
           <div class="chip">📧 zhangqian@jsou.edu.cn</div>
           <div class="chip">📍 Nanjing, China</div>
@@ -275,93 +236,40 @@
       </div>
     </section>
 
-    <!-- ===== 最新动态（外部 JSON/CSV 加载 + 年份分组 + 总折叠）===== -->
     <section class="card" id="news">
       <h2 style="display:flex;align-items:center;justify-content:space-between;">
         <span>News(动态)</span>
         <button id="newsToggleAllBtn" class="news-toggle">Expand(展开全部年份)</button>
       </h2>
-
-      <!-- JS 会自动把 news.json / news.csv 渲染到这里 -->
       <div id="newsContainer"></div>
     </section>
 
-    <!-- ===== 研究方向 ===== -->
     <section class="card" id="research">
       <h2>Research Interests(研究方向)</h2>
       <ul>
-        <li><b>Research Direction(方向) 1：</b> Noisy Label Learning/Trustworthy AI(噪声标签学习/可信AI)</li>
-        <li><b>Research Direction(方向) 2：</b> Multimodal Learning(多模态学习)</li>
-        <li><b>Research Direction(方向) 3：</b> AI4S(人工智能驱动的科学)</li>
+        <li>
+          <b>Research Direction 1：</b>
+          <a class="ri-link" href="publications.html?tag=Trustworthy%20AI">Trustworthy AI</a> /
+          <a class="ri-link" href="publications.html?tag=Noisy%20Label">Noisy Label</a>
+          (噪声标签学习/可信AI)
+        </li>
+        <li>
+          <b>Research Direction 2：</b>
+          <a class="ri-link" href="publications.html?tag=Multimodal">Multimodal</a>
+          (多模态学习)
+        </li>
+        <li>
+          <b>Research Direction 3：</b>
+          <a class="ri-link" href="publications.html?tag=AI4S">AI4S</a>
+          (人工智能驱动的科学)
+        </li>
       </ul>
     </section>
 
-    <!-- ===== 论文发表（外部 JSON/CSV 加载 + 年份自动排序）===== -->
-    <section class="card" id="publications">
-      <h2>Publications(论文)</h2>
-
-      <!-- JS 会自动把 pubs.json / pubs.csv 渲染到这里 -->
-      <div id="pubsContainer"></div>
-    </section>
-
-    <!-- ===== 项目 ===== -->
-    <section class="card" id="projects">
-      <h2>Grants(项目)</h2>
-      <div class="item">
-        <div class="item-title">National Natural Science Foundation of China Youth Fund project(2023)</div>
-        <div class="item-meta">国家自然科学基金青年基金项目(2023)</div>
-		<div class="item-title">Key Open Project of Anhui Provincial Research Center for Common Technologies in Photovoltaic Industry (2025)</div>
-		<div class="item-meta">安徽省光伏产业共性技术研究中心重点项目(2025)</div>
-		<div class="item-title">The Vice President of Science and Technology at Jiangsu(2024)</div>
-		<div class="item-meta">江苏省科技副总计划(2024)</div>
-      </div>
-    </section>
-
-    <!-- ===== 教学 ===== -->
-    <section class="card" id="teaching">
-      <h2>Courses Taught(教学)</h2>
-      <div class="item">
-        <div class="item-title">Fall 2025: Computer Vision</div>
-        <div class="item-meta">2025秋季：计算机视觉</div>
-		<div class="item-title">Fall 2025: Undergraduate Thesis in Artificial Intelligence</div>
-        <div class="item-meta">2025秋季：人工智能专业毕业设计</div>
-      </div>
-    </section>
-
-    <!-- ===== 学术服务 ===== -->
-    <section class="card" id="services">
-      <h2>Academic Service(学术服务)</h2>
-        <div class="item">
-		<div class="item-title">Program Committee Member：IJCAI2025, ICONIP2024-2025, IJCNN2025</div>
-        <div class="item-title">Workshop Chair：OCSA 2025</div>
-		<div class="item-meta">OCSA2025分论坛主席</div>
-		<div class="item-title">Youth Editorial Board Member：Interdisciplinary Sciences: Computational Life Sciences</div>
-		<div class="item-title">Editorial Board Member：Scientific Reports</div>
-		<div class="item-title">Editorial Board Member：PLOS ONE</div>
-		<div class="item-title">Youth Editorial Board Member：Journal of Huanghe S&T College</div>
-		<div class="item-meta">黄河科技学院学报青年编委</div>
-		<div class="item-title">Youth Editorial Board Member：Artificial Intelligence and Autonomous Systems</div>
-		<div class="item-title">Editorial Board Member：Chinese Journal of Computer Application</div>
-		<div class="item-meta">计算机应用文摘编委</div>
-		<div class="item-title">Editorial Board Member：China Journal of Science and Technology</div>
-		<div class="item-meta">中国科学与技术学报编委</div>
-    </section>
-
-    <!-- ===== 奖项 ===== -->
-    <section class="card" id="awards">
-      <h2>Awards(奖项)</h2>
-      <div class="item"><div class="item-title">President’s Special Award, Jiangsu Open University 2023</div></div> 
-    </section>
-
-    <footer>
-      © <span id="year"></span> Qian Zhang(张迁) · GitHub Pages
-    </footer>
+    <footer>© <span id="year"></span> Qian Zhang(张迁)</footer>
   </div>
 
   <script>
-    /* ==========================================================
-       工具函数：安全生成 HTML
-    ========================================================== */
     function esc(s) {
       return String(s ?? "")
         .replaceAll("&", "&amp;")
@@ -369,113 +277,17 @@
         .replaceAll(">", "&gt;");
     }
 
-    /* =========================
-       解析 CSV（不依赖库）
-       说明：
-       - 支持带引号字段
-       - 第一行作为 header
-    ========================== */
-    function parseCSV(text) {
-      const rows = [];
-      let cur = "", inQuotes = false;
-      const pushCell = (row) => { row.push(cur); cur = ""; };
-
-      let row = [];
-      for (let i = 0; i < text.length; i++) {
-        const ch = text[i], next = text[i+1];
-
-        if (ch === '"') {
-          if (inQuotes && next === '"') { cur += '"'; i++; }
-          else inQuotes = !inQuotes;
-        } else if (ch === "," && !inQuotes) {
-          pushCell(row);
-        } else if ((ch === "\n" || ch === "\r") && !inQuotes) {
-          if (ch === "\r" && next === "\n") i++;
-          pushCell(row);
-          if (row.length > 1 || row[0] !== "") rows.push(row);
-          row = [];
-        } else {
-          cur += ch;
-        }
-      }
-      if (cur.length || row.length) {
-        pushCell(row);
-        rows.push(row);
-      }
-
-      const headers = rows.shift().map(h => h.trim());
-      return rows.map(r => {
-        const obj = {};
-        headers.forEach((h, idx) => obj[h] = (r[idx] ?? "").trim());
-        return obj;
-      });
-    }
-
-    /* =========================
-       CSV 行 -> News 对象
-       约定：
-       - date: YYYY-MM 或 YYYY-MM-DD
-       - title/meta 对应文本
-    ========================== */
-    function csvRowToNews(row) {
-      return {
-        date: row.date || "",
-        title: row.title || "",
-        meta: row.meta || ""
-      };
-    }
-
-    /* =========================
-       CSV 行 -> Pub 对象
-       约定：
-       - links 字段为 arxiv/code/project/pdf/demo
-       - tags 用 | 分隔
-    ========================== */
-    function csvRowToPub(row) {
-      const links = {};
-      ["arxiv","code","project","pdf","demo"].forEach(k => {
-        if (row[k]) links[k] = row[k];
-      });
-
-      return {
-        year: parseInt(row.year || "0", 10),
-        title: row.title || "",
-        authors: row.authors || "",
-        venue: row.venue || "",
-        links,
-        tags: row.tags ? row.tags.split("|").map(t => t.trim()).filter(Boolean) : []
-      };
-    }
-
-    /* ==========================================================
-       外部加载 News：news.json 优先，失败则 news.csv
-    ========================================================== */
     (async function loadAndRenderNews() {
       const container = document.getElementById("newsContainer");
       const toggleAllBtn = document.getElementById("newsToggleAllBtn");
       if (!container) return;
 
       let news = null;
-
-      // 1) 先尝试加载 JSON
       try {
         const res = await fetch("./assets/news.json", { cache: "no-store" });
         if (res.ok) news = await res.json();
       } catch (e) {}
 
-      // 2) JSON 不存在则加载 CSV
-      if (!news) {
-        try {
-          const res = await fetch("./assets/news.csv", { cache: "no-store" });
-          if (res.ok) {
-            const text = await res.text();
-            const rows = parseCSV(text);
-            news = rows.map(csvRowToNews);
-          }
-        } catch (e) {}
-      }
-
-      // 3) 两者都失败就提示
       if (!news || !news.length) {
         container.innerHTML = `
           <div class="item">
@@ -487,14 +299,12 @@
         return;
       }
 
-      // 4) 按时间倒序排序（新到旧）
       const sorted = [...news].sort((a, b) => {
         const da = new Date(a.date.length === 7 ? a.date + "-01" : a.date);
         const db = new Date(b.date.length === 7 ? b.date + "-01" : b.date);
         return db - da;
       });
 
-      // 5) 年份分组
       const groups = new Map();
       for (const item of sorted) {
         const year = String(item.date).slice(0, 4) || "Unknown";
@@ -502,20 +312,15 @@
         groups.get(year).push(item);
       }
 
-      // 6) 渲染
       container.innerHTML = "";
       const yearBlocks = [];
 
       for (const [year, items] of groups.entries()) {
         const header = document.createElement("div");
         header.className = "year-header";
-        header.innerHTML = `
-          <div>${esc(year)}</div>
-          <button class="year-toggle">收起</button>
-        `;
+        header.innerHTML = `<div>${esc(year)}</div><button class="year-toggle">收起</button>`;
 
         const block = document.createElement("div");
-        block.dataset.year = year;
         block.dataset.expanded = "true";
 
         for (const it of items) {
@@ -533,7 +338,7 @@
           const expanded = block.dataset.expanded === "true";
           block.dataset.expanded = expanded ? "false" : "true";
           block.style.display = expanded ? "none" : "";
-          btn.textContent = expanded ? "展开" : "收起";
+          btn.textContent = expanded ? "Expand(展开)" : "Collapse(收起)";
         });
 
         container.appendChild(header);
@@ -541,7 +346,6 @@
         yearBlocks.push({ block, btn });
       }
 
-      // 7) 展开/收起全部年份
       let allExpanded = true;
       toggleAllBtn.textContent = "Collapse(收起全部年份)";
       toggleAllBtn.addEventListener("click", () => {
@@ -551,111 +355,13 @@
           y.block.style.display = allExpanded ? "" : "none";
           y.btn.textContent = allExpanded ? "Collapse(收起)" : "Expand(展开)";
         }
-        toggleAllBtn.textContent = allExpanded ? "Collapse(收起全部年份)" : "Expand(展开全部年份)";
+        toggleAllBtn.textContent = allExpanded
+          ? "Collapse(收起全部年份)"
+          : "Expand(展开全部年份)";
       });
     })();
 
-    /* ==========================================================
-       外部加载 Publications：pubs.json 优先，失败则 pubs.csv
-    ========================================================== */
-    (async function loadAndRenderPublications() {
-      const container = document.getElementById("pubsContainer");
-      if (!container) return;
-
-      let pubs = null;
-
-      // 1) 先尝试加载 JSON
-      try {
-        const res = await fetch("./assets/pubs.json", { cache: "no-store" });
-        if (res.ok) pubs = await res.json();
-      } catch (e) {}
-
-      // 2) JSON 不存在则加载 CSV
-      if (!pubs) {
-        try {
-          const res = await fetch("./assets/pubs.csv", { cache: "no-store" });
-          if (res.ok) {
-            const text = await res.text();
-            const rows = parseCSV(text);
-            pubs = rows.map(csvRowToPub);
-          }
-        } catch (e) {}
-      }
-
-      // 3) 两个都失败就提示
-      if (!pubs || !pubs.length) {
-        container.innerHTML = `
-          <div class="item">
-            <div class="item-title">未找到 pubs.json / pubs.csv</div>
-            <div class="item-meta">请在 assets/ 目录下添加对应文件</div>
-          </div>
-        `;
-        return;
-      }
-
-      // 4) 按年份倒序排序
-      const sorted = [...pubs].sort((a, b) => (b.year || 0) - (a.year || 0));
-
-      // 5) 分组
-      const groups = new Map();
-      for (const p of sorted) {
-        const year = p.year || "Unknown";
-        if (!groups.has(year)) groups.set(year, []);
-        groups.get(year).push(p);
-      }
-
-      // 6) 渲染
-      container.innerHTML = "";
-      for (const [year, items] of groups.entries()) {
-        const yh = document.createElement("div");
-        yh.className = "year-header";
-        yh.innerHTML = `<div>${esc(year)}</div>`;
-        container.appendChild(yh);
-
-        for (const p of items) {
-          const links = p.links || {};
-          const linkHtml = [
-            links.arxiv && `<a href="${esc(links.arxiv)}">arXiv</a>`,
-            links.pdf && `<a href="${esc(links.pdf)}">PDF</a>`,
-            links.code && `<a href="${esc(links.code)}">Code</a>`,
-            links.project && `<a href="${esc(links.project)}">Project</a>`,
-            links.demo && `<a href="${esc(links.demo)}">Demo</a>`
-          ].filter(Boolean).join(" / ");
-
-          const tagsHtml = (p.tags || []).length
-            ? `<div class="tags">${p.tags.map(t => `<span class="tag">${esc(t)}</span>`).join("")}</div>`
-            : "";
-
-          const div = document.createElement("div");
-          div.className = "item";
-          div.innerHTML = `
-            <div class="item-title">${esc(p.title)}</div>
-            <div class="item-meta">
-              ${esc(p.authors)}<br/>
-              <i>${esc(p.venue || "")}</i>
-              ${linkHtml ? " · " + linkHtml : ""}
-            </div>
-            ${tagsHtml}
-          `;
-          container.appendChild(div);
-        }
-      }
-    })();
-
-    /* =========================
-       其它小功能
-    ========================== */
     document.getElementById("year").textContent = new Date().getFullYear();
-
-    // 平滑滚动
-    document.querySelectorAll('a[href^="#"]').forEach(a => {
-      a.addEventListener("click", e => {
-        const target = document.querySelector(a.getAttribute("href"));
-        if (!target) return;
-        e.preventDefault();
-        target.scrollIntoView({ behavior: "smooth", block: "start" });
-      });
-    });
   </script>
 </body>
 </html>

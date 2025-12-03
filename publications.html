@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Publications | Qian Zhang</title>
+  <style>
+    :root {
+      --bg:#0b0d10;--card:#12151a;--text:#e6e6e6;--muted:#a7b0bb;--accent:#6aa9ff;
+      --border:rgba(255,255,255,.08);--shadow:0 10px 30px rgba(0,0,0,.35);
+      --radius:18px;--maxw:1500px;
+    }
+    @media (prefers-color-scheme: light){
+      :root{--bg:#f6f7fb;--card:#fff;--text:#0d1117;--muted:#5a6572;--accent:#1f6feb;
+      --border:rgba(0,0,0,.08);--shadow:0 8px 20px rgba(0,0,0,.08);}
+    }
+    *{box-sizing:border-box;}
+    body{margin:0;font-family:system-ui,Segoe UI,Roboto,Arial;background:var(--bg);color:var(--text);line-height:1.7;}
+    a{color:var(--accent);text-decoration:none;}a:hover{text-decoration:underline;}
+    nav{position:sticky;top:0;z-index:10;backdrop-filter:blur(8px);background:color-mix(in oklab,var(--bg) 80%,transparent);border-bottom:1px solid var(--border);}
+    .nav-inner{max-width:var(--maxw);margin:0 auto;padding:10px 18px;display:flex;gap:14px;flex-wrap:wrap;align-items:center;justify-content:space-between;}
+    .nav-links{display:flex;gap:12px;flex-wrap:wrap;font-size:14px;}
+    .nav-links a{padding:6px 10px;border-radius:999px;}
+    .nav-links a:hover{background:color-mix(in oklab,var(--card) 85%,transparent);text-decoration:none;}
+    .container{max-width:var(--maxw);margin:0 auto;padding:28px 18px 70px;}
+    .card{background:var(--card);border:1px solid var(--border);box-shadow:var(--shadow);border-radius:var(--radius);padding:18px;margin-top:18px;}
+    h2{font-size:20px;margin:6px 0 12px 0;display:flex;align-items:center;gap:8px;}
+    h2::after{content:"";height:1px;flex:1;background:var(--border);}
+    .news-toggle{font-size:13px;padding:6px 10px;border-radius:999px;border:1px solid var(--border);background:color-mix(in oklab,var(--card) 75%,transparent);color:var(--text);cursor:pointer;}
+    .item{padding:12px 0;border-top:1px dashed var(--border);}
+    .item:first-child{border-top:none;padding-top:0;}
+    .item-title{font-weight:600;margin-bottom:4px;}
+    .item-meta{color:var(--muted);font-size:14px;}
+    .tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:6px;}
+    .tag{font-size:12px;padding:2px 8px;border:1px solid var(--border);border-radius:999px;color:var(--muted);}
+    .year-header{display:flex;align-items:center;justify-content:space-between;padding:8px 0 4px;font-weight:700;font-size:16px;border-top:1px solid var(--border);margin-top:8px;}
+    .year-header:first-child{border-top:none;margin-top:0;}
+    .year-toggle{font-size:12px;padding:4px 8px;border:1px solid var(--border);border-radius:999px;background:transparent;color:var(--muted);cursor:pointer;}
+    .tag-header{display:flex;align-items:center;justify-content:space-between;padding:10px 0 6px;font-weight:800;font-size:17px;margin-top:6px;border-top:1px solid var(--border);}
+    .tag-header:first-child{border-top:none;margin-top:0;}
+    .tag-meta{color:var(--muted);font-weight:500;font-size:12px;margin-left:8px;}
+    .tag-toggle{font-size:12px;padding:4px 8px;border:1px solid var(--border);border-radius:999px;background:transparent;color:var(--muted);cursor:pointer;}
+    .tag-flash{animation:flash 1.2s ease;}
+    @keyframes flash{0%{box-shadow:0 0 0 0 color-mix(in oklab,var(--accent) 60%,transparent);}100%{box-shadow:0 0 0 12px transparent;}}
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="nav-inner">
+      <div style="font-weight:700;">Qian Zhang(张迁)</div>
+      <div class="nav-links">
+        <a href="index-qz.html">Profile(简介)</a>
+
+        <a href="publications.html">Publications(论文)</a>
+        <a href="grants.html">Grants(项目)</a>
+        <a href="teaching.html">Courses Taught(教学)</a>
+        <a href="services.html">Academic Service(学术服务)</a>
+        <a href="awards.html">Awards(奖项)</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container">
+    <section class="card" id="publications">
+      <h2 style="display:flex;align-items:center;justify-content:space-between;">
+        <span>Publications(论文)</span>
+        <div style="display:flex;gap:8px;flex-wrap:wrap;">
+          <button id="pubsToggleAllTagsBtn" class="news-toggle">Expand Tags(展开全部标签)</button>
+          <button id="pubsToggleAllYearsBtn" class="news-toggle">Expand Years(展开全部年份)</button>
+        </div>
+      </h2>
+      <div id="pubsContainer"></div>
+    </section>
+  </div>
+
+  <script>
+    function esc(s){
+      return String(s ?? "")
+        .replaceAll("&","&amp;").replaceAll("<","&lt;").replaceAll(">","&gt;");
+    }
+
+    (async function loadAndRenderPublications() {
+      const container = document.getElementById("pubsContainer");
+      const toggleAllTagsBtn = document.getElementById("pubsToggleAllTagsBtn");
+      const toggleAllYearsBtn = document.getElementById("pubsToggleAllYearsBtn");
+      if (!container) return;
+
+      let pubs = null;
+      try {
+        const res = await fetch("./assets/pubs.json", { cache: "no-store" });
+        if (res.ok) pubs = await res.json();
+      } catch(e){}
+
+      if (!pubs || !pubs.length) {
+        container.innerHTML = `
+          <div class="item">
+            <div class="item-title">未找到 pubs.json / pubs.csv</div>
+            <div class="item-meta">请在 assets/ 目录下添加对应文件</div>
+          </div>`;
+        toggleAllTagsBtn.style.display = "none";
+        toggleAllYearsBtn.style.display = "none";
+        return;
+      }
+
+      const desiredOrder = ["Trustworthy AI","Noisy Label","Multimodal","AI4S"];
+
+      function getPrimaryTag(p){
+        const tags = Array.isArray(p.tags) ? p.tags : [];
+        if (!tags.length) return "Others";
+        for (const t of desiredOrder) if (tags.includes(t)) return t;
+        return tags[0] || "Others";
+      }
+
+      const tagGroups = new Map();
+      for (const p of pubs){
+        const primary = getPrimaryTag(p);
+        if (!tagGroups.has(primary)) tagGroups.set(primary, []);
+        tagGroups.get(primary).push(p);
+      }
+
+      const existingPreferred = desiredOrder.filter(t => tagGroups.has(t));
+      const otherTags = [...tagGroups.keys()]
+        .filter(t => !desiredOrder.includes(t) && t !== "Others")
+        .sort((a,b)=>{
+          const maxA = Math.max(...tagGroups.get(a).map(x=>x.year||0));
+          const maxB = Math.max(...tagGroups.get(b).map(x=>x.year||0));
+          return maxB - maxA;
+        });
+
+      const tagsSorted = [
+        ...existingPreferred,
+        ...otherTags,
+        ...(tagGroups.has("Others") ? ["Others"] : [])
+      ];
+
+      container.innerHTML = "";
+      const tagBlocks = [];
+      const yearBlocksAll = [];
+
+      for (const tag of tagsSorted){
+        const papers = tagGroups.get(tag);
+        papers.sort((x,y)=>(y.year||0)-(x.year||0));
+
+        const yearGroups = new Map();
+        for (const p of papers){
+          const y = p.year || "Unknown";
+          if (!yearGroups.has(y)) yearGroups.set(y, []);
+          yearGroups.get(y).push(p);
+        }
+        const yearsSorted = [...yearGroups.keys()].sort((a,b)=>(b||0)-(a||0));
+
+        const tagHeader = document.createElement("div");
+        tagHeader.className = "tag-header";
+        tagHeader.id = `tag-${tag.replace(/\\s+/g,"-")}`;
+        tagHeader.innerHTML = `
+          <div>${esc(tag)}<span class="tag-meta">(${papers.length})</span></div>
+          <button class="tag-toggle">收起</button>`;
+
+        const tagBlock = document.createElement("div");
+        tagBlock.dataset.expanded = "true";
+
+        const tagBtn = tagHeader.querySelector(".tag-toggle");
+        tagBtn.addEventListener("click", ()=>{
+          const ex = tagBlock.dataset.expanded==="true";
+          tagBlock.dataset.expanded = ex?"false":"true";
+          tagBlock.style.display = ex?"none":"";
+          tagBtn.textContent = ex?"Expand(展开)":"Collapse(收起)";
+        });
+
+        for (const year of yearsSorted){
+          const items = yearGroups.get(year);
+
+          const yearHeader = document.createElement("div");
+          yearHeader.className = "year-header";
+          yearHeader.innerHTML = `<div>${esc(year)}</div><button class="year-toggle">收起</button>`;
+
+          const yearBlock = document.createElement("div");
+          yearBlock.dataset.expanded = "true";
+
+          for (const p of items){
+            const links = p.links || {};
+            const linkHtml = [
+              links.arxiv && `<a href="${esc(links.arxiv)}">arXiv</a>`,
+              links.pdf && `<a href="${esc(links.pdf)}">PDF</a>`,
+              links.code && `<a href="${esc(links.code)}">Code</a>`,
+              links.project && `<a href="${esc(links.project)}">Project</a>`,
+              links.demo && `<a href="${esc(links.demo)}">Demo</a>`
+            ].filter(Boolean).join(" / ");
+
+            const tagsHtml = (p.tags||[]).length
+              ? `<div class="tags">${p.tags.map(t=>`<span class="tag">${esc(t)}</span>`).join("")}</div>`
+              : "";
+
+            const div = document.createElement("div");
+            div.className = "item";
+            div.innerHTML = `
+              <div class="item-title">${esc(p.title)}</div>
+              <div class="item-meta">
+                ${esc(p.authors)}<br/>
+                <i>${esc(p.venue||"")}</i>
+                ${linkHtml ? " · "+linkHtml : ""}
+              </div>
+              ${tagsHtml}`;
+            yearBlock.appendChild(div);
+          }
+
+          const yearBtn = yearHeader.querySelector(".year-toggle");
+          yearBtn.addEventListener("click", ()=>{
+            const ex = yearBlock.dataset.expanded==="true";
+            yearBlock.dataset.expanded = ex?"false":"true";
+            yearBlock.style.display = ex?"none":"";
+            yearBtn.textContent = ex?"Expand(展开)":"Collapse(收起)";
+          });
+
+          tagBlock.appendChild(yearHeader);
+          tagBlock.appendChild(yearBlock);
+          yearBlocksAll.push({block:yearBlock,btn:yearBtn});
+        }
+
+        container.appendChild(tagHeader);
+        container.appendChild(tagBlock);
+        tagBlocks.push({block:tagBlock,btn:tagBtn});
+      }
+
+      let allTagsExpanded = true;
+      toggleAllTagsBtn.textContent = "Collapse Tags(收起全部标签)";
+      toggleAllTagsBtn.addEventListener("click", ()=>{
+        allTagsExpanded=!allTagsExpanded;
+        for (const t of tagBlocks){
+          t.block.dataset.expanded = allTagsExpanded?"true":"false";
+          t.block.style.display = allTagsExpanded?"":"none";
+          t.btn.textContent = allTagsExpanded?"Collapse(收起)":"Expand(展开)";
+        }
+        toggleAllTagsBtn.textContent = allTagsExpanded
+          ? "Collapse Tags(收起全部标签)"
+          : "Expand Tags(展开全部标签)";
+      });
+
+      let allYearsExpanded = true;
+      toggleAllYearsBtn.textContent = "Collapse Years(收起全部年份)";
+      toggleAllYearsBtn.addEventListener("click", ()=>{
+        allYearsExpanded=!allYearsExpanded;
+        for (const y of yearBlocksAll){
+          y.block.dataset.expanded = allYearsExpanded?"true":"false";
+          y.block.style.display = allYearsExpanded?"":"none";
+          y.btn.textContent = allYearsExpanded?"Collapse(收起)":"Expand(展开)";
+        }
+        toggleAllYearsBtn.textContent = allYearsExpanded
+          ? "Collapse Years(收起全部年份)"
+          : "Expand Years(展开全部年份)";
+      });
+
+      window.expandOnlyPublicationTag = function(tag){
+        if(!tag) return;
+        const targetId = `tag-${tag.replace(/\\s+/g,"-")}`;
+        const targetHeader = document.getElementById(targetId);
+        if(!targetHeader) return;
+
+        document.querySelectorAll("#pubsContainer .tag-header").forEach(h=>{
+          const b=h.nextElementSibling;
+          const btn=h.querySelector(".tag-toggle");
+          if(b){ b.dataset.expanded="false"; b.style.display="none"; }
+          if(btn) btn.textContent="Expand(展开)";
+        });
+
+        const tb=targetHeader.nextElementSibling;
+        const tbtn=targetHeader.querySelector(".tag-toggle");
+        if(tb){ tb.dataset.expanded="true"; tb.style.display=""; }
+        if(tbtn) tbtn.textContent="Collapse(收起)";
+
+        targetHeader.scrollIntoView({behavior:"smooth",block:"start"});
+        targetHeader.classList.remove("tag-flash");
+        void targetHeader.offsetWidth;
+        targetHeader.classList.add("tag-flash");
+      };
+
+      window.__pubsReady = true;
+
+      const params = new URLSearchParams(location.search);
+      const tagParam = params.get("tag");
+      if (tagParam) {
+        requestAnimationFrame(()=>window.expandOnlyPublicationTag(tagParam));
+      }
+    })();
+  </script>
+</body>
+</html>
