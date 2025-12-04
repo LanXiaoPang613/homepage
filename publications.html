@@ -100,12 +100,14 @@
     const highlightNames = ["Qian Zhang"];
 
     function normName(s){
-      // 去掉作者名里可能出现的 * # † 等标记并统一小写
-      return String(s)
-        .replace(/g, "")
-        .trim()
-        .toLowerCase();
-    }
+  // 只用于匹配：忽略作者名里附带的 * # + 等贡献标记
+  // 注意：不会影响最终显示，显示仍然保留这些符号
+  return String(s)
+    .replace(/[*#+†‡]/g, "")  // 这里新增了 +
+    .trim()
+    .toLowerCase();
+}
+
     const highlightSet = new Set(highlightNames.map(normName));
 
     function authorsHtml(authors){
