@@ -2,7 +2,7 @@
   {
     "year": 2020,
     "title": "An Improved Noise Loss Correction Algorithm for Learning from Noisy Labels",
-    "authors": "**Qian Zhang**, Feifei Lee, Yagang Wang, Ran Miao, Lei Chen, Qiu Chen",
+    "authors": "Qian Zhang, Feifei Lee, Yagang Wang, Ran Miao, Lei Chen, Qiu Chen",
     "venue": "Journal of Visual Communication and Image Representation",
     "links": {
       "pdf": "https://www.sciencedirect.com/science/article/abs/pii/S1047320320301619"
@@ -14,7 +14,7 @@
   {
     "year": 2021,
     "title": "CJC-net: A cyclical training method with joint loss and co-teaching strategy net for deep learning under noisy labels",
-    "authors": "**Qian Zhang**, Feifei Lee, Yagang Wang, Daming Ding, Shuai Yang, Chaowei Lin, Qiu Chen",
+    "authors": "Qian Zhang, Feifei Lee, Yagang Wang, Daming Ding, Shuai Yang, Chaowei Lin, Qiu Chen",
     "venue": "Information Sciences",
     "links": {
       "pdf": "https://www.sciencedirect.com/science/article/abs/pii/S0020025521008008"
@@ -26,7 +26,7 @@
   {
     "year": 2021,
     "title": "An joint end-to-end framework for learning with noisy labels",
-    "authors": "**Qian Zhang**, Feifei Lee, Yagang Wang, Daming Ding, Wei Yao, Chen Lu, Qiu Chen",
+    "authors": "Qian Zhang, Feifei Lee, Yagang Wang, Daming Ding, Wei Yao, Chen Lu, Qiu Chen",
     "venue": "Applied Soft Computing",
     "links": {
       "pdf": "https://www.sciencedirect.com/science/article/abs/pii/S1568494621003495?via%3Dihub"
@@ -38,7 +38,7 @@
   {
     "year": 2024,
     "title": "Cross-to-merge training with class balance strategy for learning with noisy labels",
-    "authors": "**Qian Zhang***, Yi Zhu, Ming Yang, Ge Jin, Yingwen Zhu, Qiu Chen",
+    "authors": "Qian Zhang*, Yi Zhu, Ming Yang, Ge Jin, Yingwen Zhu, Qiu Chen",
     "venue": "Expert Systems with Applications",
     "links": {
       "pdf": "https://doi.org/10.1016/j.eswa.2024.123846"
@@ -50,7 +50,7 @@
   {
     "year": 2024,
     "title": "BPT-PLR: A Balanced Partitioning and Training Framework with Pseudo-Label Relaxed Contrastive Loss for Noisy Label Learning",
-    "authors": "**Qian Zhang**, Ge Jin, Yi Zhu, Hongjian Wei, Qiu Chen",
+    "authors": "Qian Zhang, Ge Jin, Yi Zhu, Hongjian Wei, Qiu Chen",
     "venue": "Entropy",
     "links": {
       "pdf": "https://doi.org/10.3390/e26070589"
@@ -62,7 +62,7 @@
   {
     "year": 2024,
     "title": "A Noisy Sample Selection Framework Based on a Mixup Loss and Recalibration Strategy",
-    "authors": "**Qian Zhang**, De Yu, Xinru Zhou, Hanmeng Gong, Zheng Li, Yiming Liu, Ruirui Shao",
+    "authors": "Qian Zhang, De Yu, Xinru Zhou, Hanmeng Gong, Zheng Li, Yiming Liu, Ruirui Shao",
     "venue": "Mathematics",
     "links": {
       "pdf": "https://doi.org/10.3390/math12152389"
@@ -74,7 +74,7 @@
   {
     "year": 2024,
     "title": "An Improved Sample Selection Framework for Learning with Noisy Labels",
-    "authors": "**Qian Zhang**, Yi Zhu, Ming Yang, Ge Jin, Yingwen Zhu, Yanjun Lu, Yu Zou1, Qiu Chen",
+    "authors": "Qian Zhang, Yi Zhu, Ming Yang, Ge Jin, Yingwen Zhu, Yanjun Lu, Yu Zou1, Qiu Chen",
     "venue": "PLOS ONE",
     "links": {
       "pdf": "https://doi.org/10.1371/journal.pone.0309841"
@@ -86,7 +86,7 @@
   {
     "year": 2025,
     "title": "Psscl: A Progressive Sample Selection Framework with Contrastive Loss Designed for Noisy Labels",
-    "authors": "**Qian Zhang**, Yi Zhu, Filipe R. Cordeiro, Qiu Chen",
+    "authors": "Qian Zhang, Yi Zhu, Filipe R. Cordeiro, Qiu Chen",
     "venue": "Pattern Recognition",
     "links": {
       "pdf": "https://doi.org/10.1016/j.patcog.2024.111284"
@@ -98,7 +98,7 @@
   {
     "year": 2025,
     "title": "Enhancing feature discrimination with pseudo-labels for foundation model in segmentation of 3D medical images",
-    "authors": "Ge Jin#, **Qian Zhang**#, Yong Cheng, Ming Xu, Yingwen Zhu, De Yu, Yongqi Yuan, Juncheng Li, Jun Shi",
+    "authors": "Ge Jin#, Qian Zhang#, Yong Cheng, Ming Xu, Yingwen Zhu, De Yu, Yongqi Yuan, Juncheng Li, Jun Shi",
     "venue": "Neural Networks",
     "links": {
       "pdf": "https://doi.org/10.1016/j.neunet.2025.107979"
@@ -110,7 +110,7 @@
   {
     "year": 2025,
     "title": "A Two-Stage Noisy Label Learning Framework with Uniform Consistency Selection and Robust Training",
-    "authors": "**Qian Zhang**, Qiu Chen",
+    "authors": "Qian Zhang, Qiu Chen",
     "venue": "Applied Intelligence",
     "links": {
       "pdf": "http://dx.doi.org/10.2139/ssrn.4835466"
@@ -122,7 +122,7 @@
   {
     "year": 2025,
     "title": "Fine-grained and Cyclical Noisy Label Cleaning Method with Visual-Language Model",
-    "authors": "**Qian Zhang**, Ge Jin, Filipe R. Cordeiro, Zihan Wei, Yingwen Zhu, Qiu Chen",
+    "authors": "Qian Zhang, Ge Jin, Filipe R. Cordeiro, Zihan Wei, Yingwen Zhu, Qiu Chen",
     "venue": "Preprint",
     "links": {
       "pdf": ""
@@ -134,7 +134,7 @@
   {
     "year": 2024,
     "title": "Transforming Traffic Accident Investigations: A Virtual-Real-Fusion Framework for Intelligent 3D Traffic Accident Reconstruction",
-    "authors": "Yanzhan Chen, **Qian Zhang***, FanYu",
+    "authors": "Yanzhan Chen, Qian Zhang*, FanYu",
     "venue": "Complex & Intelligent Systems",
     "links": {
       "pdf": "https://doi.org/10.1007/s40747-024-01693-9"
@@ -146,7 +146,7 @@
   {
     "year": 2025,
     "title": "Enhancing intrusion detection performance using GCN-LOF: A hybrid graph-based anomaly detection approach",
-    "authors": "Zhenkai Qin, Lingying Li, Qining Luo, Xiaochuan Yu, **Qian Zhang***",
+    "authors": "Zhenkai Qin, Lingying Li, Qining Luo, Xiaochuan Yu, Qian Zhang*",
     "venue": "Computer Networks",
     "links": {
       "pdf": "https://doi.org/10.1016/j.comnet.2025.111606"
@@ -158,7 +158,7 @@
   {
     "year": 2025,
     "title": "Predictive modeling and multi-objective optimization of magnetic core loss with activation function flexibly selected Kolmogorov-Arnold networks",
-    "authors": "Yanzhan Chen, Fan Yu, Li Chen, Ge Jin, **Qian Zhang***",
+    "authors": "Yanzhan Chen, Fan Yu, Li Chen, Ge Jin, Qian Zhang*",
     "venue": "Energy",
     "links": {
       "pdf": "https://doi.org/10.1016/j.energy.2025.137730"
@@ -170,7 +170,7 @@
   {
     "year": 2025,
     "title": "TC-Linear: lightweight traffic speed forecasting via trend-seasonal decomposition and temporal convolution",
-    "authors": "Zhenkai Qin, Baozhong Wei, Huan Zeng, **Qian Zhang***",
+    "authors": "Zhenkai Qin, Baozhong Wei, Huan Zeng, Qian Zhang*",
     "venue": "Systems Science & Control Engineering",
     "links": {
       "pdf": "https://doi.org/10.1080/21642583.2025.2546843"
@@ -182,7 +182,7 @@
   {
     "year": 2025,
     "title": "ACSAformer: A crime forecasting model based on sparse attention and adaptive graph convolution",
-    "authors": "Zhenkai Qin, Baozhong Wei, Caifeng Gao, Feng Zhu, Weiqi Qin, **Qian Zhang***",
+    "authors": "Zhenkai Qin, Baozhong Wei, Caifeng Gao, Feng Zhu, Weiqi Qin, Qian Zhang*",
     "venue": "Frontiers in Physics",
     "links": {
       "pdf": "https://doi.org/10.3389/fphy.2025.1596987"
@@ -194,7 +194,7 @@
   {
     "year": 2025,
     "title": "Direction-Aware convolution for airway tubular feature enhancement network",
-    "authors": "Qibiao Wu, Yagang Wang, **Qian Zhang**",
+    "authors": "Qibiao Wu, Yagang Wang, Qian Zhang",
     "venue": "Medical Image Analysis",
     "links": {
       "pdf": "https://doi.org/10.1016/j.media.2025.103882"
@@ -206,7 +206,7 @@
   {
     "year": 2025,
     "title": "Fine-grained preference optimization with differentiated token weighting for llm-based recommendations",
-    "authors": "Zihan Wei, **Qian Zhang**, et al.",
+    "authors": "Zihan Wei, Qian Zhang, et al.",
     "venue": "Knowledge-Based Systems",
     "links": {
       "pdf": "https://doi.org/10.1016/j.knosys.2025.114805"
@@ -218,7 +218,7 @@
   {
     "year": 2025,
     "title": "DynSpecNet: A Knowledge-Adaptive Spectral Graph Neural Framework for Anomaly Detection in Open-Source Intelligence Systems",
-    "authors": "Zhenkai Qin, Dongze Wu, Jie Shen, Ziqian Lin, Weiqi Qin, **Qian Zhang***",
+    "authors": "Zhenkai Qin, Dongze Wu, Jie Shen, Ziqian Lin, Weiqi Qin, Qian Zhang*",
     "venue": "Submission",
     "links": {
       "pdf": ""
@@ -230,7 +230,7 @@
   {
     "year": 2025,
     "title": "Beyond Transformers: A New Time-Frequency Collaborative Paradigm for PV Forecasting based on State Space Models",
-    "authors": "Zhenkai Qin, Baozhong Wei, Ziqian Lin, **Qian Zhang**, Hongjian Wei*",
+    "authors": "Zhenkai Qin, Baozhong Wei, Ziqian Lin, Qian Zhang, Hongjian Wei*",
     "venue": "Submission",
     "links": {
       "pdf": ""
@@ -242,7 +242,7 @@
   {
     "year": 2025,
     "title": "Decoding Depression: A Hybrid GRU-Mamba Architecture with Multi-dimensional Interpretability Framework for Facial Dynamics Analysis",
-    "authors": "Ge Jin, Xinyi Li, **Qian Zhang**, et al.",
+    "authors": "Ge Jin, Xinyi Li, Qian Zhang, et al.",
     "venue": "Submission",
     "links": {
       "pdf": ""
@@ -254,7 +254,7 @@
   {
     "year": 2025,
     "title": "Energy-Efficient Adaptive Perception for Autonomous Driving via Lightweight Policy Learning and Simulation-based Optimization",
-    "authors": "Yanzhan Chen, Fan Yu, Ge Jin, **Qian Zhang***, Mahardhika Pratama",
+    "authors": "Yanzhan Chen, Fan Yu, Ge Jin, Qian Zhang*, Mahardhika Pratama",
     "venue": "Knowledge-Based Systems",
     "links": {
       "pdf": "https://doi.org/10.1016/j.knosys.2025.114514"
@@ -266,7 +266,7 @@
   {
     "year": 2023,
     "title": "Online Multiple Object Tracking Using Min-Cost Flow on Temporal Window for Autonomous Driving",
-    "authors": "Hongjian Wei, Yingping Huang, **Qian Zhang**, Zhiyang Guo",
+    "authors": "Hongjian Wei, Yingping Huang, Qian Zhang, Zhiyang Guo",
     "venue": "World Electric Vehicle Journal",
     "links": {
       "pdf": "https://doi.org/10.3390/wevj14090243"
@@ -278,7 +278,7 @@
   {
     "year": 2024,
     "title": "Mastering adverse weather: a two-stage approach for robust semantic segmentation in autonomous driving",
-    "authors": "Pengjie Liu, Yanzhan Chen, Fan Yu, **Qian Zhang**",
+    "authors": "Pengjie Liu, Yanzhan Chen, Fan Yu, Qian Zhang",
     "venue": "The Visual Computer",
     "links": {
       "pdf": "https://doi.org/10.1007/s00371-024-03663-1"
@@ -290,7 +290,7 @@
   {
     "year": 2025,
     "title": "DSS-MobileNetV3: An Efficient Dynamic-State-Space-Enhanced Network for Concrete Crack Segmentation",
-    "authors": "Haibo Li, Yong Chen, **Qian Zhang**, Lingkun Chen",
+    "authors": "Haibo Li, Yong Chen, Qian Zhang, Lingkun Chen",
     "venue": "Buildings",
     "links": {
       "pdf": "https://doi.org/10.3390/buildings15111905"
@@ -302,7 +302,7 @@
   {
     "year": 2024,
     "title": "Double-RIS Assisted MIMO V2V Channels: Modeling, Simulation, and Correlation Statistics Analysis",
-    "authors": "Yuhan Wen, Beiping Zhou, **Qian Zhang**, Xuting Pan, Yue Zhang",
+    "authors": "Yuhan Wen, Beiping Zhou, Qian Zhang, Xuting Pan, Yue Zhang",
     "venue": "Physical Communication",
     "links": {
       "pdf": "https://doi.org/10.1016/j.phycom.2024.102458"
@@ -314,7 +314,7 @@
   {
     "year": 2025,
     "title": "Energy Aware Reconfigurable Intelligent Surface Assisted Unmanned Aerial Vehicle Age of Information Enabled Data Collection Policies",
-    "authors": "Tao Zhang, **Qian Zhang***, Yingwen Zhu, Chen Dai",
+    "authors": "Tao Zhang, Qian Zhang*, Yingwen Zhu, Chen Dai",
     "venue": "Journal of Electronics & Information Technology (电子与信息学报)",
     "links": {
       "pdf": "https://doi.org/10.11999/JEIT240866"
